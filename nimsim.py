@@ -20,3 +20,11 @@ class NimSim:
 
     def reset(self, starting_player):
         self.state = (starting_player, self.N)
+
+    def is_legal_action(self, state, action):
+        if action in self.action_space and \
+           state[1] - action >= 0:
+            return True
+
+    def get_winner(self, state):
+        return state[0]
